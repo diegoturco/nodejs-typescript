@@ -18,11 +18,10 @@ export class UserService {
   }
 
   async updateOne(id: string, data: UserInput) {
-    await UserModel.updateOne({ _id: id }, data);            
-    return await UserModel.findOne({ _id: id });
+    return await UserModel.findOneAndUpdate({ _id: id }, data, { new: true });
   }
 
   async deleteOne(id: string) {
-    await UserModel.deleteOne({ _id: id });
+    return await UserModel.findOneAndDelete({ _id: id });
   }
 }
