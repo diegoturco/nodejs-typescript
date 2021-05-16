@@ -6,7 +6,7 @@ import { UserInput } from "src/types/UserInput";
 export class UserService {
 
   async findOne(id: string) {  
-    return await UserModel.findOne({ _id: id });
+    return UserModel.findOne({_id: id});
   }
     
   async find(limit: number, offset: number) {  
@@ -18,10 +18,10 @@ export class UserService {
   }
 
   async updateOne(id: string, data: UserInput) {
-    return await UserModel.findOneAndUpdate({ _id: id }, data, { new: true });
+    return UserModel.findOneAndUpdate({_id: id}, data, {new: true});
   }
 
   async deleteOne(id: string) {
-    return await UserModel.findOneAndDelete({ _id: id });
+    return UserModel.findOneAndDelete({_id: id});
   }
 }
