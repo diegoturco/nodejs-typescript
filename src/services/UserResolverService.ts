@@ -9,8 +9,8 @@ export class UserService {
     return await UserModel.findOne({ _id: id });
   }
     
-  async find() {  
-    return await UserModel.find();
+  async find(limit: number, offset: number) {  
+    return await UserModel.find().limit(limit).skip(offset).sort({name: 'asc'}).exec();
   }
 
   async create(data: UserInput) {

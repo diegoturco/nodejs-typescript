@@ -13,8 +13,10 @@ export class UserResolver {
   };
 
   @Query(() => [User])
-  async users(){    
-    return await this.userService.find();
+  async users(
+    @Arg("limit") limit: number,
+    @Arg("offset") offset: number) {
+    return await this.userService.find(limit, offset);
   };
 
   @Mutation(() => User)
